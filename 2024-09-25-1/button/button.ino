@@ -1,5 +1,4 @@
-// Materials: breadboard, button, hook-up wires, 10k ohm resistor,
- led
+// Materials: breadboard, button, hook-up wires, 10k ohm resistor, led
 
 const int buttonPin = 10;
 const int ledPin = 13;

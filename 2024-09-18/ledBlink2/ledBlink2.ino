@@ -5,7 +5,7 @@ int maxCount = 7;
 int count = maxCount;
 
 void setup() {
-  Serial.begin(9600);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {

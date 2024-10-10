@@ -1,4 +1,4 @@
-// Materials: LED, 220 ohm resistor, hook-up wires and breadboard
+// Materiais: LED, 220 ohm resistor, fios e breadboard
 
 int led = 10;
 int maxTime = 2000;

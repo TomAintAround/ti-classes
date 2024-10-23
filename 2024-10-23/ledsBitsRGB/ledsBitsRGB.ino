@@ -2,10 +2,10 @@
 // Exercício 2.5
 
 byte contador = 0;
-byte minLed = 2;
-byte maxLed = 9;
-byte minRGB = 11;
-byte maxRGB = 13;
+byte minLed = 6;
+byte maxLed = 13;
+byte minRGB = 3;
+byte maxRGB = 5;
 
 void ligarLED() {
   for (byte pinLed = minLed; pinLed <= maxLed; pinLed++) {
@@ -13,9 +13,9 @@ void ligarLED() {
     digitalWrite(pinLed, algarismoOn);
   }
 
-  for (byte pinRGB = maxRGB; pinRGB >= minRGB; pinRGB--) {
-    bool maxCor = contador <= 300 - (100 * (pinRGB - 11));
-    bool minCor = contador > 0 - (100 * (pinRGB - 13));
+  for (byte pinRGB = minRGB; pinRGB <= maxRGB; pinRGB++) {
+    bool maxCor = contador <= 300 - (100 * (maxRGB - pinRGB));
+    bool minCor = contador > ~(100 * (minRGB - pinRGB)) + 1;
     bool seletorCores = minCor && maxCor;
     digitalWrite(pinRGB, seletorCores);
   }

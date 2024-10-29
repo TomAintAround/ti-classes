@@ -1,36 +1,32 @@
-// Materiais: 11 220 ohm resistores, breaboad, 8 leds, 1 led RGB, fios
-// Exercício 2.5
+// Exercício 2.9
 
-byte contador = 0;
-byte minLed = 6;
-byte maxLed = 13;
-byte minRGB = 3;
-byte maxRGB = 5;
-
-void ligarLED() {
-  for (byte pinLed = minLed; pinLed <= maxLed; pinLed++) {
-    byte algarismoOn = (contador >> (pinLed - minLed)) & 1;
-    digitalWrite(pinLed, algarismoOn);
-  }
-
-  for (byte pinRGB = minRGB; pinRGB <= maxRGB; pinRGB++) {
-    bool maxCor = contador <= 300 - (100 * (maxRGB - pinRGB));
-    bool minCor = contador > ~(100 * (minRGB - pinRGB)) + 1;
-    bool seletorCores = minCor && maxCor;
-    digitalWrite(pinRGB, seletorCores);
-  }
-}
+byte largura = 1;
+byte largura_base = 9;
+byte ledPin = 13;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  largura_base += !(largura_base % 2);
+  
+  for (largura; largura <= largura_base; largura += 2) {
+    triangulo(largura);
+    largura = (largura + 1) % (largura_base + 1);
+  }
 
-  for (byte pinLed = minLed; pinLed <= maxLed; pinLed++) pinMode(pinLed, OUTPUT);
-  for (byte pinRGB = minRGB; pinRGB <= maxRGB; pinRGB++) pinMode(pinRGB, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
 }
 
-void loop() {
-  Serial.println(contador);
-  ligarLED();
-  contador++;
-  delay(100);
+void triangulo(byte largura) {
+  for (byte row = 1; row <= largura; row += 2) {
+    for (byte space = 0; space < (largura - row) / 2; space++) Serial.print(" ");
+    for (byte symbol = 1; symbol <= row; symbol++) {
+      Serial.print("*");
+    }
+    Serial.println("");
+  }
 }
+
+void loop() {}

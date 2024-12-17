@@ -8,13 +8,13 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    number = Serial.read();
+	number = Serial.read();
 
-    if (number - '0' >= 0 && number - '0' <= 9) {
-      Serial.print("I have received (ASCII): ");
-      Serial.println(number, DEC);
-      Serial.print("I have received (CHAR): ");
-      Serial.println(number);
-    }
+	if (number - '0' >= 0 && number - '0' <= 9) {
+	  Serial.print("I have received (ASCII): ");
+	  Serial.println(number, DEC);
+	  Serial.print("I have received (CHAR): ");
+	  Serial.println(number);
+	}
   }
 }

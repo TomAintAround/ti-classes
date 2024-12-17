@@ -20,7 +20,7 @@ void loop() {
   count = count - 1;
 
   if (count == 0) {
-    time = maxTime;
-    count = maxCount;
+	time = maxTime;
+	count = maxCount;
   }
 }

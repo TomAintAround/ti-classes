@@ -5,8 +5,8 @@ byte contador = 0;
 
 void ligarLED() {
   for (byte pin = 6; pin <= 13; pin++) {
-    byte algarismoOn = (contador >> (pin - 6)) & 1;
-    digitalWrite(pin, algarismoOn);
+	byte algarismoOn = (contador >> (pin - 6)) & 1;
+	digitalWrite(pin, algarismoOn);
   }
 }
 

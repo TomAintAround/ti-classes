@@ -13,8 +13,8 @@ long lastDebounceTime = 0;
 void ligarLED() {
   Serial.println(contador);
   for (byte pinLed = minLed; pinLed <= maxLed; pinLed++) {
-    byte algarismoOn = (contador >> (pinLed - minLed)) & 1;
-    digitalWrite(pinLed, algarismoOn);
+	byte algarismoOn = (contador >> (pinLed - minLed)) & 1;
+	digitalWrite(pinLed, algarismoOn);
   }
 }
 
@@ -31,18 +31,18 @@ void loop() {
   if (buttonState != lastButtonState) lastDebounceTime = millis();
 
   if (millis() - lastDebounceTime > debounceDelay) {
-    if (reading != buttonState) {
-      reading = buttonState;
-      if (reading == HIGH) {
-        ligarLED();
-        contador = (contador + 1) % 8;
-      }
-    }
+	if (reading != buttonState) {
+	  reading = buttonState;
+	  if (reading == HIGH) {
+		ligarLED();
+		contador = (contador + 1) % 8;
+	  }
+	}
   }
 
   if (millis() - lastDebounceTime > 2000) {
-    contador = 0;
-    ligarLED();
+	contador = 0;
+	ligarLED();
   }
 
   lastButtonState = buttonState;

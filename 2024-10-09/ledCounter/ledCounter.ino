@@ -19,24 +19,24 @@ void setup() {
 void loop() {
   int buttonState = digitalRead(buttonPin);
   if (buttonState != lastButtonState) {
-    lastDebounceTime = millis();
+	lastDebounceTime = millis();
   }
 
   if ((millis() - lastDebounceTime) > debounceDelay) {
-    if (reading != buttonState) {
-      reading = buttonState;
-      if (reading == LOW) {
-        counter++;
-      }
+	if (reading != buttonState) {
+	  reading = buttonState;
+	  if (reading == LOW) {
+		counter++;
+	  }
 
-      if (counter % 3 == 0 && reading == LOW) {
-        ledCounter++;
-        Serial.println(ledCounter);
-        digitalWrite(ledPin, HIGH);
-        delay(100);
-        digitalWrite(ledPin, LOW);
-      }
-    }
+	  if (counter % 3 == 0 && reading == LOW) {
+		ledCounter++;
+		Serial.println(ledCounter);
+		digitalWrite(ledPin, HIGH);
+		delay(100);
+		digitalWrite(ledPin, LOW);
+	  }
+	}
   }
 
   lastButtonState = buttonState;

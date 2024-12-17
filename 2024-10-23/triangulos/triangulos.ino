@@ -12,11 +12,11 @@ void setup() {
 
 void triangulos(largura) {
   for (byte row = 1; row <= largura; row += 2) {
-    for (byte space = 0; space < (largura - row) / 2; space++) Serial.print(" ");
-    for (byte symbol = 1; symbol <= row; symbol++) {
-      Serial.print("*");
-    }
-    Serial.println("");
+	for (byte space = 0; space < (largura - row) / 2; space++) Serial.print(" ");
+	for (byte symbol = 1; symbol <= row; symbol++) {
+	  Serial.print("*");
+	}
+	Serial.println("");
   }
 }
   

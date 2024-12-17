@@ -14,8 +14,8 @@ void setup() {
 void loop() {
   counter++;
 
-    digitalWrite(ledPin1, (counter % 2 == 0));
-    digitalWrite(ledPin2, (counter % 3 == 0));
+	digitalWrite(ledPin1, (counter % 2 == 0));
+	digitalWrite(ledPin2, (counter % 3 == 0));
 
   if (counter == 400) counter = 200;
 
